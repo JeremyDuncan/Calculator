@@ -30,6 +30,7 @@ h1 {
 #key-pad {
   margin: auto;
   margin-top: 5px;
+  margin-left: 8px;
   display: flex;
   flex-direction: row;
   width:280px;
@@ -51,29 +52,47 @@ h1 {
   display: flex;
   flex-direction: row;
   width: 100%;
-  background-color:lightgray;
+
 }
 #clear {
   margin: auto;
   text-align: center;
   width: 50%;
   height: 35px;
-  border: 1px solid black;
+  border: 2px outset #000000;
+  border-radius: 0px 0px 0px 15px;
   padding-top: 8px;
   background-color: rgb(163, 90, 90);
   font-weight: bold;
   color: white;
+
+  background: rgb(250,158,125);
+  background: -moz-radial-gradient(center, rgb(250,158,125) 0%, 
+            rgb(79,12,8) 100%, rgb(26,5,2) 100%);
+  background: -webkit-radial-gradient(center, rgb(250,158,125) 0%, 
+            rgb(79,12,8) 100%, rgb(26,5,2) 100%);
+  background: radial-gradient(ellipse at center, rgb(250,158,125) 0%, 
+            rgb(79,12,8) 100%, rgb(26,5,2) 100%);
 }
+
 #equals {
   margin: auto;
   text-align: center;
   width: 50%;
   height: 35px;
-  border: 1px solid black;
+  border: 2px outset #000000;
   padding-top: 8px;
   background-color: rgb(96, 95, 189);
   font-weight: bold;
   color: white;
+
+  background: rgb(128,189,250);
+  background: -moz-radial-gradient(center, rgb(128,189,250) 0%, 
+            rgb(10,14,140) 100%, rgb(8,13,163) 100%);
+  background: -webkit-radial-gradient(center, rgb(128,189,250) 0%, 
+            rgb(10,14,140) 100%, rgb(8,13,163) 100%);
+  background: radial-gradient(ellipse at center, rgb(128,189,250) 0%, 
+            rgb(10,14,140) 100%, rgb(8,13,163) 100%);
 }
 
 
@@ -89,9 +108,17 @@ h1 {
   text-align: center;
   width: 210px;
   height: 35px;
-  border: 1px solid black;
+  border: 2px outset #000000;
   padding-top: 8px;
   font-weight: bold;
+
+  background: rgb(250,250,250);
+  background: -moz-radial-gradient(center, rgb(250,250,250) 0%, 
+  rgb(55,59,56) 100%, rgb(3,3,2) 100%);
+  background: -webkit-radial-gradient(center, rgb(250,250,250) 0%, 
+  rgb(55,59,56) 100%, rgb(3,3,2) 100%);
+  background: radial-gradient(ellipse at center, rgb(250,250,250) 0%, 
+  rgb(55,59,56) 100%, rgb(3,3,2) 100%);
 }
 
 
@@ -108,24 +135,48 @@ h1 {
   text-align: center;
   width: 70px;
   height: 35px;
-  border: 1px solid black;
+  border: 2px outset #000000;
   padding-top: 8px;
+
+  background: rgb(250,250,250);
+  background: -moz-radial-gradient(center, rgb(250,250,250) 0%, 
+  rgb(55,59,56) 100%, rgb(3,3,2) 100%);
+  background: -webkit-radial-gradient(center, rgb(250,250,250) 0%, 
+  rgb(55,59,56) 100%, rgb(3,3,2) 100%);
+  background: radial-gradient(ellipse at center, rgb(250,250,250) 0%, 
+  rgb(55,59,56) 100%, rgb(3,3,2) 100%);
 }
 #two {
   margin: auto;
   text-align: center;
   width: 70px;
   height: 35px;
-  border: 1px solid black;
+  border: 2px outset #000000;
   padding-top: 8px;
+
+  background: rgb(250,250,250);
+  background: -moz-radial-gradient(center, rgb(250,250,250) 0%, 
+  rgb(55,59,56) 100%, rgb(3,3,2) 100%);
+  background: -webkit-radial-gradient(center, rgb(250,250,250) 0%, 
+  rgb(55,59,56) 100%, rgb(3,3,2) 100%);
+  background: radial-gradient(ellipse at center, rgb(250,250,250) 0%, 
+  rgb(55,59,56) 100%, rgb(3,3,2) 100%);
 }
 #three {
   margin: auto;
   text-align: center;
   width: 70px;
   height: 35px;
-  border: 1px solid black;
+  border: 2px outset #000000;
   padding-top: 8px;
+
+  background: rgb(250,250,250);
+  background: -moz-radial-gradient(center, rgb(250,250,250) 0%, 
+  rgb(55,59,56) 100%, rgb(3,3,2) 100%);
+  background: -webkit-radial-gradient(center, rgb(250,250,250) 0%, 
+  rgb(55,59,56) 100%, rgb(3,3,2) 100%);
+  background: radial-gradient(ellipse at center, rgb(250,250,250) 0%, 
+  rgb(55,59,56) 100%, rgb(3,3,2) 100%);
 }
 
 /* ============ Row 3 =============*/
@@ -141,24 +192,48 @@ h1 {
   text-align: center;
   width: 70px;
   height: 35px;
-  border: 1px solid black;
+  border: 2px outset #000000;
   padding-top: 8px;
+
+  background: rgb(250,250,250);
+  background: -moz-radial-gradient(center, rgb(250,250,250) 0%, 
+  rgb(55,59,56) 100%, rgb(3,3,2) 100%);
+  background: -webkit-radial-gradient(center, rgb(250,250,250) 0%, 
+  rgb(55,59,56) 100%, rgb(3,3,2) 100%);
+  background: radial-gradient(ellipse at center, rgb(250,250,250) 0%, 
+  rgb(55,59,56) 100%, rgb(3,3,2) 100%);
 }
 #five {
   margin: auto;
   text-align: center;
   width: 70px;
   height: 35px;
-  border: 1px solid black;
+  border: 2px outset #000000;
   padding-top: 8px;
+
+  background: rgb(250,250,250);
+  background: -moz-radial-gradient(center, rgb(250,250,250) 0%, 
+  rgb(55,59,56) 100%, rgb(3,3,2) 100%);
+  background: -webkit-radial-gradient(center, rgb(250,250,250) 0%, 
+  rgb(55,59,56) 100%, rgb(3,3,2) 100%);
+  background: radial-gradient(ellipse at center, rgb(250,250,250) 0%, 
+  rgb(55,59,56) 100%, rgb(3,3,2) 100%);
 }
 #six {
   margin: auto;
   text-align: center;
   width: 70px;
   height: 35px;
-  border: 1px solid black;
+  border: 2px outset #000000;
   padding-top: 8px;
+
+  background: rgb(250,250,250);
+  background: -moz-radial-gradient(center, rgb(250,250,250) 0%, 
+  rgb(55,59,56) 100%, rgb(3,3,2) 100%);
+  background: -webkit-radial-gradient(center, rgb(250,250,250) 0%, 
+  rgb(55,59,56) 100%, rgb(3,3,2) 100%);
+  background: radial-gradient(ellipse at center, rgb(250,250,250) 0%, 
+  rgb(55,59,56) 100%, rgb(3,3,2) 100%);
 }
 
 /* ============ Row 4 =============*/
@@ -167,7 +242,16 @@ h1 {
   flex-direction: row;
   width: 210px;
   background-color:lightgray;
-  font-weight: bold;
+  font-weight: bold;\border: 5px outset #1C6EA4;
+  border-radius: 15px 0px 0px 0px;
+
+  background: rgb(250,250,250);
+  background: -moz-radial-gradient(center, rgb(250,250,250) 0%, 
+  rgb(55,59,56) 100%, rgb(3,3,2) 100%);
+  background: -webkit-radial-gradient(center, rgb(250,250,250) 0%, 
+  rgb(55,59,56) 100%, rgb(3,3,2) 100%);
+  background: radial-gradient(ellipse at center, rgb(250,250,250) 0%, 
+  rgb(55,59,56) 100%, rgb(3,3,2) 100%);
 }
 
 #seven {
@@ -175,24 +259,51 @@ h1 {
   text-align: center;
   width: 70px;
   height: 35px;
-  border: 1px solid black;
+  border: 2px outset #000000;
   padding-top: 8px;
+  border: 2px outset #070707;
+  border-radius: 15px 0px 0px 0px;
+
+
+  background: rgb(250,250,250);
+  background: -moz-radial-gradient(center, rgb(250,250,250) 0%, 
+  rgb(55,59,56) 100%, rgb(3,3,2) 100%);
+  background: -webkit-radial-gradient(center, rgb(250,250,250) 0%, 
+  rgb(55,59,56) 100%, rgb(3,3,2) 100%);
+  background: radial-gradient(ellipse at center, rgb(250,250,250) 0%, 
+  rgb(55,59,56) 100%, rgb(3,3,2) 100%);
 }
 #eight {
   margin: auto;
   text-align: center;
   width: 70px;
   height: 35px;
-  border: 1px solid black;
+  border: 2px outset #000000;
   padding-top: 8px;
+
+  background: rgb(250,250,250);
+  background: -moz-radial-gradient(center, rgb(250,250,250) 0%, 
+  rgb(55,59,56) 100%, rgb(3,3,2) 100%);
+  background: -webkit-radial-gradient(center, rgb(250,250,250) 0%, 
+  rgb(55,59,56) 100%, rgb(3,3,2) 100%);
+  background: radial-gradient(ellipse at center, rgb(250,250,250) 0%, 
+  rgb(55,59,56) 100%, rgb(3,3,2) 100%);
 }
 #nine {
   margin: auto;
   text-align: center;
   width: 70px;
   height: 35px;
-  border: 1px solid black;
+  border: 2px outset #000000;
   padding-top: 8px;
+
+  background: rgb(250,250,250);
+  background: -moz-radial-gradient(center, rgb(250,250,250) 0%, 
+  rgb(55,59,56) 100%, rgb(3,3,2) 100%);
+  background: -webkit-radial-gradient(center, rgb(250,250,250) 0%, 
+  rgb(55,59,56) 100%, rgb(3,3,2) 100%);
+  background: radial-gradient(ellipse at center, rgb(250,250,250) 0%, 
+  rgb(55,59,56) 100%, rgb(3,3,2) 100%);
 }
 
 
@@ -202,58 +313,86 @@ h1 {
   flex-direction: column;
   text-align: center;
   width: 70px;
-  height: 112%;
-  border: 1px solid black;
+  height: 122%;
+ 
 }
 #add {
   text-align: center;
   width: 70px;
   height: 35px;
-  border: 1px solid black;
+  border: 2px outset #000000;
+  border-radius: 0px 15px 0px 0px;
   padding-top: 8px;
   background-color: rgb(118, 180, 147);
   font-weight: bold;
   color: rgb(8, 46, 11);
+
+  background: rgb(130,250,130);
+background: -moz-radial-gradient(center, rgb(130,250,130) 0%, rgb(3,64,1) 100%, rgb(0,13,3) 100%);
+background: -webkit-radial-gradient(center, rgb(130,250,130) 0%, rgb(3,64,1) 100%, rgb(0,13,3) 100%);
+background: radial-gradient(ellipse at center, rgb(130,250,130) 0%, rgb(3,64,1) 100%, rgb(0,13,3) 100%);
 }
 #subtract {
 
   text-align: center;
   width: 70px;
   height: 35px;
-  border: 1px solid black;
+  border: 2px outset #000000;
   padding-top: 8px;
   background-color: rgb(118, 180, 147);
   font-weight: bold;
   color: rgb(8, 46, 11);
+
+  background: rgb(130,250,130);
+background: -moz-radial-gradient(center, rgb(130,250,130) 0%, rgb(3,64,1) 100%, rgb(0,13,3) 100%);
+background: -webkit-radial-gradient(center, rgb(130,250,130) 0%, rgb(3,64,1) 100%, rgb(0,13,3) 100%);
+background: radial-gradient(ellipse at center, rgb(130,250,130) 0%, rgb(3,64,1) 100%, rgb(0,13,3) 100%);
 }
 #divide {
   text-align: center;
   width: 70px;
   height: 35px;
-  border: 1px solid black;
+  border: 2px outset #000000;
   padding-top: 8px;
   background-color: rgb(118, 180, 147);
   font-weight: bold;
   color: rgb(8, 46, 11);
+
+  background: rgb(130,250,130);
+background: -moz-radial-gradient(center, rgb(130,250,130) 0%, rgb(3,64,1) 100%, rgb(0,13,3) 100%);
+background: -webkit-radial-gradient(center, rgb(130,250,130) 0%, rgb(3,64,1) 100%, rgb(0,13,3) 100%);
+background: radial-gradient(ellipse at center, rgb(130,250,130) 0%, rgb(3,64,1) 100%, rgb(0,13,3) 100%);
 }
 
 #multiply {
   text-align: center;
   width: 70px;
   height: 35px;
-  border: 1px solid black;
+  border: 2px outset #000000;
   padding-top: 8px;
   background-color: rgb(118, 180, 147);
   font-weight: bold;
   color: rgb(8, 46, 11);
+
+  background: rgb(130,250,130);
+background: -moz-radial-gradient(center, rgb(130,250,130) 0%, rgb(3,64,1) 100%, rgb(0,13,3) 100%);
+background: -webkit-radial-gradient(center, rgb(130,250,130) 0%, rgb(3,64,1) 100%, rgb(0,13,3) 100%);
+background: radial-gradient(ellipse at center, rgb(130,250,130) 0%, rgb(3,64,1) 100%, rgb(0,13,3) 100%);
 }
 #decimal {
   text-align: center;
   width: 70px;
   height: 35px;
-  border: 1px solid black;
+  border: 2px outset #000000;
   padding-top: 8px;
   background-color: rgb(118, 180, 147);
   font-weight: bold;
   color: rgb(8, 46, 11);
+  border: 2px outset #000000;
+  border-radius: 0px 0px 15px 0px;
+
+  background: rgb(130,250,130);
+background: -moz-radial-gradient(center, rgb(130,250,130) 0%, rgb(3,64,1) 100%, rgb(0,13,3) 100%);
+background: -webkit-radial-gradient(center, rgb(130,250,130) 0%, rgb(3,64,1) 100%, rgb(0,13,3) 100%);
+background: radial-gradient(ellipse at center, rgb(130,250,130) 0%, rgb(3,64,1) 100%, rgb(0,13,3) 100%);
 }
