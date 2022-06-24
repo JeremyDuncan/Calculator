@@ -65,43 +65,63 @@ class ReactApp extends React.Component {
   render() {
     return (
       <div >
-        
-        {/* Equals */}
-        <div id="equals" onClick={() => {this.function()}}> = </div>
-        
-        {/* Numbers */}
-        <div id="zero"  onClick={() => {this.enterNumber(0)}}> 0 </div>
-        <div id="one"   onClick={() => {this.enterNumber(1)}}> 1 </div>
-        <div id="two"   onClick={() => {this.enterNumber(2)}}> 2 </div>
-        <div id="three" onClick={() => {this.enterNumber(3)}}> 3 </div>
-        <div id="four"  onClick={() => {this.enterNumber(4)}}> 4 </div>
-        <div id="five"  onClick={() => {this.enterNumber(5)}}> 5 </div>
-        <div id="six"   onClick={() => {this.enterNumber(6)}}> 6 </div>
-        <div id="seven" onClick={() => {this.enterNumber(7)}}> 7 </div>
-        <div id="eight" onClick={() => {this.enterNumber(8)}}> 8 </div>
-        <div id="nine"  onClick={() => {this.enterNumber(9)}}> 9 </div>
-        
-        {/* Arithmetic Operators */}
-        <div id="add"      onClick={() => {this.function()}}> + </div>
-        <div id="subtract" onClick={() => {this.function()}}> - </div>
-        <div id="multiply" onClick={() => {this.function()}}> X </div>
-        <div id="divide"   onClick={() => {this.function()}}> / </div>
-        
-        {/* Decimal */}
-        <div id="decimal"  onClick={() => {this.function()}}> . </div>
+        <div id="calculator">
 
-        {/* Clear */}
-        <div id="clear"    onClick={() => {this.clearScreen()}}> AC </div>
+          {/* Display */}
+          <div id="calc-displays">
+            <div id="arithmetic-display">
+              {this.state.arithmatic} Test
+            </div>
+            <div id="display"> 
+              {this.state.inputNumbers}Test
+            </div>
+          </div>
+        
+          {/* Equals */}
+          <div id="equals" onClick={() => {this.function()}}> = </div>
+          
+          <div id="num-container">
+            <div id="num-row-1">
+              {/* Numbers */}
+              <div id="zero"  onClick={() => {this.enterNumber(0)}}> 0 </div>
 
-        {/* Display */}
-        <div id="calc-displays">
-          <div id="arithmetic-display">
-            {this.state.arithmatic}
+              {/* Decimal */}
+              <div id="decimal"  onClick={() => {this.function()}}> . </div>
+            </div>
+
+            <div id="num-row-2">
+              <div id="one"   onClick={() => {this.enterNumber(1)}}> 1 </div>
+              <div id="two"   onClick={() => {this.enterNumber(2)}}> 2 </div>
+              <div id="three" onClick={() => {this.enterNumber(3)}}> 3 </div>
+            </div>
+
+            <div id="num-row-3">
+              <div id="four"  onClick={() => {this.enterNumber(4)}}> 4 </div>
+              <div id="five"  onClick={() => {this.enterNumber(5)}}> 5 </div>
+              <div id="six"   onClick={() => {this.enterNumber(6)}}> 6 </div>
+            </div>
+
+            <div id="num-row-4">
+              <div id="seven" onClick={() => {this.enterNumber(7)}}> 7 </div>
+              <div id="eight" onClick={() => {this.enterNumber(8)}}> 8 </div>
+              <div id="nine"  onClick={() => {this.enterNumber(9)}}> 9 </div>
+            </div>
+
           </div>
-          <div id="display"> 
-            {this.state.inputNumbers}
-          </div>
+
+          {/* Arithmetic Operators */}
+          <div id="add"      onClick={() => {this.function()}}> + </div>
+          <div id="subtract" onClick={() => {this.function()}}> - </div>
+          <div id="multiply" onClick={() => {this.function()}}> X </div>
+          <div id="divide"   onClick={() => {this.function()}}> / </div>
+          
+          
+
+          {/* Clear */}
+          <div id="clear"    onClick={() => {this.clearScreen()}}> AC </div>
+
         </div>
+   
         
 {/* // User Story #7: At any time, pressing the clear button clears the input and output values, and returns the calculator to its initialized state; 0 should be shown in the element with the id of display. */}
         
