@@ -21,6 +21,7 @@ h1 {
   margin-bottom: 5px;
   padding: 5px;
   width: 280px;
+  height: 50px;
   background-color: rgb(0, 0, 0);
   color: white;
   text-align: right;
@@ -328,9 +329,12 @@ h1 {
   color: rgb(8, 46, 11);
 
   background: rgb(130,250,130);
-background: -moz-radial-gradient(center, rgb(130,250,130) 0%, rgb(3,64,1) 100%, rgb(0,13,3) 100%);
-background: -webkit-radial-gradient(center, rgb(130,250,130) 0%, rgb(3,64,1) 100%, rgb(0,13,3) 100%);
-background: radial-gradient(ellipse at center, rgb(130,250,130) 0%, rgb(3,64,1) 100%, rgb(0,13,3) 100%);
+  background: -moz-radial-gradient(center, rgb(130,250,130) 0%, 
+  rgb(3,64,1) 100%, rgb(0,13,3) 100%);
+  background: -webkit-radial-gradient(center, rgb(130,250,130) 0%, 
+  rgb(3,64,1) 100%, rgb(0,13,3) 100%);
+  background: radial-gradient(ellipse at center, rgb(130,250,130) 0%, 
+  rgb(3,64,1) 100%, rgb(0,13,3) 100%);
 }
 #subtract {
 
@@ -344,9 +348,12 @@ background: radial-gradient(ellipse at center, rgb(130,250,130) 0%, rgb(3,64,1) 
   color: rgb(8, 46, 11);
 
   background: rgb(130,250,130);
-background: -moz-radial-gradient(center, rgb(130,250,130) 0%, rgb(3,64,1) 100%, rgb(0,13,3) 100%);
-background: -webkit-radial-gradient(center, rgb(130,250,130) 0%, rgb(3,64,1) 100%, rgb(0,13,3) 100%);
-background: radial-gradient(ellipse at center, rgb(130,250,130) 0%, rgb(3,64,1) 100%, rgb(0,13,3) 100%);
+  background: -moz-radial-gradient(center, rgb(130,250,130) 0%,
+  rgb(3,64,1) 100%, rgb(0,13,3) 100%);
+  background: -webkit-radial-gradient(center, rgb(130,250,130) 0%, 
+  rgb(3,64,1) 100%, rgb(0,13,3) 100%);
+  background: radial-gradient(ellipse at center, rgb(130,250,130) 0%, 
+  rgb(3,64,1) 100%, rgb(0,13,3) 100%);
 }
 #divide {
   text-align: center;
@@ -359,9 +366,12 @@ background: radial-gradient(ellipse at center, rgb(130,250,130) 0%, rgb(3,64,1) 
   color: rgb(8, 46, 11);
 
   background: rgb(130,250,130);
-background: -moz-radial-gradient(center, rgb(130,250,130) 0%, rgb(3,64,1) 100%, rgb(0,13,3) 100%);
-background: -webkit-radial-gradient(center, rgb(130,250,130) 0%, rgb(3,64,1) 100%, rgb(0,13,3) 100%);
-background: radial-gradient(ellipse at center, rgb(130,250,130) 0%, rgb(3,64,1) 100%, rgb(0,13,3) 100%);
+  background: -moz-radial-gradient(center, rgb(130,250,130) 0%, 
+  rgb(3,64,1) 100%, rgb(0,13,3) 100%);
+  background: -webkit-radial-gradient(center, rgb(130,250,130) 0%, 
+  rgb(3,64,1) 100%, rgb(0,13,3) 100%);
+  background: radial-gradient(ellipse at center, rgb(130,250,130) 0%, 
+  rgb(3,64,1) 100%, rgb(0,13,3) 100%);
 }
 
 #multiply {
@@ -375,9 +385,12 @@ background: radial-gradient(ellipse at center, rgb(130,250,130) 0%, rgb(3,64,1) 
   color: rgb(8, 46, 11);
 
   background: rgb(130,250,130);
-background: -moz-radial-gradient(center, rgb(130,250,130) 0%, rgb(3,64,1) 100%, rgb(0,13,3) 100%);
-background: -webkit-radial-gradient(center, rgb(130,250,130) 0%, rgb(3,64,1) 100%, rgb(0,13,3) 100%);
-background: radial-gradient(ellipse at center, rgb(130,250,130) 0%, rgb(3,64,1) 100%, rgb(0,13,3) 100%);
+  background: -moz-radial-gradient(center, rgb(130,250,130) 0%, 
+  rgb(3,64,1) 100%, rgb(0,13,3) 100%);
+  background: -webkit-radial-gradient(center, rgb(130,250,130) 0%, 
+  rgb(3,64,1) 100%, rgb(0,13,3) 100%);
+  background: radial-gradient(ellipse at center, rgb(130,250,130) 0%, 
+  rgb(3,64,1) 100%, rgb(0,13,3) 100%);
 }
 #decimal {
   text-align: center;
@@ -392,7 +405,14 @@ background: radial-gradient(ellipse at center, rgb(130,250,130) 0%, rgb(3,64,1) 
   border-radius: 0px 0px 15px 0px;
 
   background: rgb(130,250,130);
-background: -moz-radial-gradient(center, rgb(130,250,130) 0%, rgb(3,64,1) 100%, rgb(0,13,3) 100%);
-background: -webkit-radial-gradient(center, rgb(130,250,130) 0%, rgb(3,64,1) 100%, rgb(0,13,3) 100%);
-background: radial-gradient(ellipse at center, rgb(130,250,130) 0%, rgb(3,64,1) 100%, rgb(0,13,3) 100%);
+  background: -moz-radial-gradient(center, rgb(130,250,130) 0%, 
+  rgb(3,64,1) 100%, rgb(0,13,3) 100%);
+  background: -webkit-radial-gradient(center, rgb(130,250,130) 0%, 
+  rgb(3,64,1) 100%, rgb(0,13,3) 100%);
+  background: radial-gradient(ellipse at center, rgb(130,250,130) 0%, 
+  rgb(3,64,1) 100%, rgb(0,13,3) 100%);
+}
+
+#clear:hover {
+  color: rgb(255, 242, 0);
 }
