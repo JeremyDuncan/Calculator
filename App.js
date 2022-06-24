@@ -71,10 +71,10 @@ class ReactApp extends React.Component {
           {/* Display */}
           <div id="calc-displays">
             <div id="arithmetic-display">
-              {this.state.arithmatic} Test
+              {this.state.arithmatic}
             </div>
             <div id="display"> 
-              {this.state.inputNumbers}Test
+              {this.state.inputNumbers}
             </div>
           </div>
 
