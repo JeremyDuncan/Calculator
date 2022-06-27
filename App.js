@@ -51,6 +51,7 @@ class ReactApp extends React.Component {
     this.state = {
       inputNumbers: [],
       calculation: "",
+      hasDecimal: false,
 
       currentVal: '0',
       prevVal: '0',
@@ -59,28 +60,44 @@ class ReactApp extends React.Component {
       lastClicked: ''
     }
   }
-  // function
 
-  checkValue = (num) => {
-    // stores length of inputNumbers array
-    var inputNumLength = this.state.inputNumbers.length;
+  // functions
+  enterDecimal = (num) => {
+    if (this.state.hasDecimal === false) {
+      this.setState({ inputNumbers: [...this.state.inputNumbers, num]});
+      }
+  }
 
-    // Returns false and prevents two 0's from being entered at begining of number.
-    if(num === 0 && this.state.inputNumbers[0] === 0 && inputNumLength === 1) {
-      alert("Test Sat")
-      return False;
-    } else if (num === "." && this.state.inputNumbers[inputNumLength - 1] === ".") {
-      return false;
-    } else {
-      return true;
+  checkDecimal = (num) => {
+    // run this is input is a decimal
+    // if number has no decimal enter decimal and change state to "hasDecimal"
+    if (num === "." && this.state.hasDecimal === false) {
+      this.enterDecimal(num);
+      this.setState({hasDecimal: true})
     }
   }
 
-  enterNumber = (num) => {
-    var valueGood = this.checkValue(num);
-    if (valueGood) {
-    this.setState({ inputNumbers: [...this.state.inputNumbers, num]});
+  checkNumber = (num) => {
+    // stores length of inputNumbers array
+    var inputNumLength = this.state.inputNumbers.length;
+
+    // run this is input is not a decimal
+    if(num != "."){
+      // Returns false and prevents two 0's from being entered at begining of number.
+      if(num === 0 && this.state.inputNumbers[0] === 0 && inputNumLength === 1) {
+        return false;
+      } else {
+          this.setState({ inputNumbers: [...this.state.inputNumbers, num]});
+      }
     }
+  }
+
+
+  enterNumber = (num) => {
+    //passes input to check functions to see if input is valid.
+    this.checkNumber(num);
+    this.checkDecimal(num);
+
   }
   
   clearScreen = () => {
