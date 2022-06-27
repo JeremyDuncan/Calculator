@@ -62,6 +62,7 @@ class ReactApp extends React.Component {
   }
 
   // functions
+  //==================== Check Decimal Functions ==============================>
   enterDecimal = (num) => {
     if (this.state.hasDecimal === false) {
       this.setState({ inputNumbers: [...this.state.inputNumbers, num]});
@@ -76,6 +77,8 @@ class ReactApp extends React.Component {
       this.setState({hasDecimal: true})
     }
   }
+
+  //==================== Check Number Functions ==============================>
 
   checkNumber = (num) => {
     // stores length of inputNumbers array
@@ -92,6 +95,7 @@ class ReactApp extends React.Component {
     }
   }
 
+  //==================== Main Input Function ==================================>
 
   enterNumber = (num) => {
     //passes input to check functions to see if input is valid.
