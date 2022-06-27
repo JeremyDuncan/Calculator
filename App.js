@@ -63,6 +63,12 @@ class ReactApp extends React.Component {
 
   // functions
   //==================== Check Decimal Functions ==============================>
+
+  // resets decimal state
+  resetDecimal = () => {
+    this.setState({hasDecimal: false})
+  }
+
   enterDecimal = (num) => {
     if (this.state.hasDecimal === false) {
       this.setState({ inputNumbers: [...this.state.inputNumbers, num]});
@@ -108,6 +114,30 @@ class ReactApp extends React.Component {
     this.setState({ inputNumbers: []});
   }
 
+  //==================== Operator Function ===================================>
+  enterOperator = (operator) => {
+    // resets decimal switch to allow a new decimal for new number
+    this.resetDecimal();
+
+    // does function depending on operator selected
+    switch (operator) {
+      case '*':
+        console.log("* = " + operator);
+        break;
+      case '/':
+        console.log("/ = " + operator);
+        break;
+      case '+':
+        console.log("+ = " + operator);
+        break;
+        case '-':
+          console.log("- = " + operator);
+          break;
+      default:
+        console.log(`Sorry, we are out of ${expr}.`);
+    }
+    
+  }
 
 
   // Work in Progress ===================================>
@@ -183,10 +213,10 @@ class ReactApp extends React.Component {
 
               <div id="calculation-operators">
                 {/* Arithmetic Operators */}
-                <div id="add"      onClick={() => {this.enterNumber("+")}}> + </div>
-                <div id="subtract" onClick={() => {this.enterNumber("-")}}> - </div>
-                <div id="multiply" onClick={() => {this.enterNumber("*")}}> X </div>
-                <div id="divide"   onClick={() => {this.enterNumber("/")}}> / </div>
+                <div id="add"      onClick={() => {this.enterOperator("+")}}> + </div>
+                <div id="subtract" onClick={() => {this.enterOperator("-")}}> - </div>
+                <div id="multiply" onClick={() => {this.enterOperator("*")}}> X </div>
+                <div id="divide"   onClick={() => {this.enterOperator("/")}}> / </div>
                 {/* Decimal */}
                 <div id="decimal"  onClick={() => {this.enterNumber(".")}}> . </div>
               </div>
