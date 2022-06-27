@@ -101,6 +101,10 @@ class ReactApp extends React.Component {
 
   //==================== Clear Functions ==================================>
 
+  clearOperator = () => {
+    this.setState({opSign: ""});
+  }
+
   clearInputNumbers = () => {
     this.setState({ inputNumbers: []});
   }
@@ -112,6 +116,7 @@ class ReactApp extends React.Component {
   clearScreen = () => {
     this.clearNumList();
     this.clearInputNumbers()
+    this.clearOperator();
   }
   //==================== Main Input Function ==================================>
 
@@ -206,6 +211,7 @@ class ReactApp extends React.Component {
   render() {
     console.log("inputNumbers = " + this.state.inputNumbers);
     console.log("numList = " + this.state.numList);
+    console.log("opSign = " + this.state.opSign);
     return (
       <div >
         <h1>Calculator App</h1>
@@ -224,44 +230,44 @@ class ReactApp extends React.Component {
             <div id="key-pad">
               <div id="num-container">
                 <div id="num-row-4">
-                  <div id="seven" onClick={() => {this.enterNumber(7)}}> 7 </div>
-                  <div id="eight" onClick={() => {this.enterNumber(8)}}> 8 </div>
-                  <div id="nine"  onClick={() => {this.enterNumber(9)}}> 9 </div>
+                  <div id="seven" className="button" onClick={() => {this.enterNumber(7)}}> 7 </div>
+                  <div id="eight" className="button" onClick={() => {this.enterNumber(8)}}> 8 </div>
+                  <div id="nine" className="button"  onClick={() => {this.enterNumber(9)}}> 9 </div>
                 </div>
 
                 <div id="num-row-3">
-                  <div id="four"  onClick={() => {this.enterNumber(4)}}> 4 </div>
-                  <div id="five"  onClick={() => {this.enterNumber(5)}}> 5 </div>
-                  <div id="six"   onClick={() => {this.enterNumber(6)}}> 6 </div>
+                  <div id="four" className="button"  onClick={() => {this.enterNumber(4)}}> 4 </div>
+                  <div id="five" className="button"  onClick={() => {this.enterNumber(5)}}> 5 </div>
+                  <div id="six" className="button"   onClick={() => {this.enterNumber(6)}}> 6 </div>
                 </div>
 
                 <div id="num-row-2">
-                  <div id="one"   onClick={() => {this.enterNumber(1)}}> 1 </div>
-                  <div id="two"   onClick={() => {this.enterNumber(2)}}> 2 </div>
-                  <div id="three" onClick={() => {this.enterNumber(3)}}> 3 </div>
+                  <div id="one" className="button"   onClick={() => {this.enterNumber(1)}}> 1 </div>
+                  <div id="two" className="button"   onClick={() => {this.enterNumber(2)}}> 2 </div>
+                  <div id="three" className="button" onClick={() => {this.enterNumber(3)}}> 3 </div>
                 </div>
 
                 <div id="num-row-1">
                   {/* Numbers */}
-                  <div id="zero"  onClick={() => {this.enterNumber(0)}}> 0 </div>
+                  <div id="zero" className="button"  onClick={() => {this.enterNumber(0)}}> 0 </div>
                 </div>
 
                 <div id="num-row-0">
                   {/* Clear */}
-                  <div id="clear" onClick={() => {this.clearScreen()}}> AC </div>
+                  <div id="clear" className="button" onClick={() => {this.clearScreen()}}> AC </div>
                   {/* Equals */}
-                  <div id="equals" onClick={() => {this.getCalculation()}}> = </div>
+                  <div id="equals" className="button" onClick={() => {this.getCalculation()}}> = </div>
                 </div>
               </div>
 
               <div id="calculation-operators">
                 {/* Arithmetic Operators */}
-                <div id="add"      onClick={() => {this.enterOperator("+")}}> + </div>
-                <div id="subtract" onClick={() => {this.enterOperator("-")}}> - </div>
-                <div id="multiply" onClick={() => {this.enterOperator("*")}}> X </div>
-                <div id="divide"   onClick={() => {this.enterOperator("/")}}> / </div>
+                <div id="add" className="button"      onClick={() => {this.enterOperator("+")}}> + </div>
+                <div id="subtract" className="button" onClick={() => {this.enterOperator("-")}}> - </div>
+                <div id="multiply" className="button" onClick={() => {this.enterOperator("*")}}> X </div>
+                <div id="divide" className="button"   onClick={() => {this.enterOperator("/")}}> / </div>
                 {/* Decimal */}
-                <div id="decimal"  onClick={() => {this.enterNumber(".")}}> . </div>
+                <div id="decimal" className="button"  onClick={() => {this.enterNumber(".")}}> . </div>
               </div>
             </div>
         </div>
