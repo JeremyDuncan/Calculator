@@ -50,8 +50,9 @@ class ReactApp extends React.Component {
     super(props)
     this.state = {
       inputNumbers: [],
-      calculation: "",
+      calculation: [],
       hasDecimal: false,
+      opSign: "",
 
       currentVal: '0',
       prevVal: '0',
@@ -114,15 +115,38 @@ class ReactApp extends React.Component {
     this.setState({ inputNumbers: []});
   }
 
+  //==================== Parse Function ======================================>
+
+  parseNumbers = () => {
+    var x = parseFloat(this.state.inputNumbers.join(""));
+    this.clearScreen();
+    return x;
+  }
+
   //==================== Operator Function ===================================>
+
+  setOperator = (operator) => {
+    this.setState({opSign: operator});
+  }
+
+  chechMultiOperstor = () => {
+
+  }
+
   enterOperator = (operator) => {
     // resets decimal switch to allow a new decimal for new number
     this.resetDecimal();
+    this.checkMultiOperator(operator);
+    this.setOperator(operator);
+    var parsedNumber = this.parseNumbers();
+
 
     // does function depending on operator selected
     switch (operator) {
       case '*':
         console.log("* = " + operator);
+        
+        console.log(parsedNumber);
         break;
       case '/':
         console.log("/ = " + operator);
@@ -134,7 +158,7 @@ class ReactApp extends React.Component {
           console.log("- = " + operator);
           break;
       default:
-        console.log(`Sorry, we are out of ${expr}.`);
+        console.log("ERROR IN SWITCH");
     }
     
   }
