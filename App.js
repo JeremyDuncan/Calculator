@@ -50,16 +50,65 @@ class ReactApp extends React.Component {
     super(props)
     this.state = {
       inputNumbers: [],
-      arithmatic: ""
+      calculation: "",
+
+      currentVal: '0',
+      prevVal: '0',
+      formula: '',
+      currentSign: 'pos',
+      lastClicked: ''
     }
   }
   // function
+
+  checkValue = (num) => {
+    // stores length of inputNumbers array
+    var inputNumLength = this.state.inputNumbers.length;
+
+    // Returns false and prevents two 0's from being entered at begining of number.
+    if(num === 0 && this.state.inputNumbers[0] === 0 && inputNumLength === 1) {
+      alert("Test Sat")
+      return False;
+    } else if (num === "." && this.state.inputNumbers[inputNumLength - 1] === ".") {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   enterNumber = (num) => {
-   this.setState({ inputNumbers: {...this.state.inputNumbers, num}});
+    var valueGood = this.checkValue(num);
+    if (valueGood) {
+    this.setState({ inputNumbers: [...this.state.inputNumbers, num]});
+    }
   }
   
   clearScreen = () => {
     this.setState({ inputNumbers: []});
+  }
+
+
+
+  // Work in Progress ===================================>
+
+
+
+  getCalculation = () => {
+    const addition = this.state.inputNumbers.indexOf("+");
+    const subtraction = this.state.inputNumbers.indexOf("-");
+    const division = this.state.inputNumbers.indexOf("/");
+    const multiply = this.state.inputNumbers.indexOf("*");
+
+    var number = 0;
+    var add = false;
+    var subtract = false;
+    var divide = false;
+    // var multiply = false;
+
+    for(var i = 0; i < this.state.inputNumbers.length; i++){
+      
+    }
+    this.setState({calculation: addition})
   }
   
   render() {
@@ -71,7 +120,7 @@ class ReactApp extends React.Component {
           {/* Display */}
           <div id="calc-displays">
             <div id="arithmetic-display">
-              {this.state.arithmatic}
+              {this.state.calculation}
             </div>
             <div id="display"> 
               {this.state.inputNumbers}
@@ -107,18 +156,18 @@ class ReactApp extends React.Component {
                   {/* Clear */}
                   <div id="clear"    onClick={() => {this.clearScreen()}}> AC </div>
                   {/* Equals */}
-                  <div id="equals" onClick={() => {this.function()}}> = </div>
+                  <div id="equals" onClick={() => {this.getCalculation()}}> = </div>
                 </div>
               </div>
 
-              <div id="arithmatic-operators">
+              <div id="calculation-operators">
                 {/* Arithmetic Operators */}
-                <div id="add"      onClick={() => {this.function()}}> + </div>
-                <div id="subtract" onClick={() => {this.function()}}> - </div>
-                <div id="multiply" onClick={() => {this.function()}}> X </div>
-                <div id="divide"   onClick={() => {this.function()}}> / </div>
+                <div id="add"      onClick={() => {this.enterNumber("+")}}> + </div>
+                <div id="subtract" onClick={() => {this.enterNumber("-")}}> - </div>
+                <div id="multiply" onClick={() => {this.enterNumber("*")}}> X </div>
+                <div id="divide"   onClick={() => {this.enterNumber("/")}}> / </div>
                 {/* Decimal */}
-                <div id="decimal"  onClick={() => {this.function()}}> . </div>
+                <div id="decimal"  onClick={() => {this.enterNumber(".")}}> . </div>
               </div>
             </div>
         </div>
