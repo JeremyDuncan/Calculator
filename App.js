@@ -161,17 +161,19 @@ class ReactApp extends React.Component {
   checkNumAvail = () => {
     var numberAvailable = this.checkIfNumberAvailable();
     if(numberAvailable){
-    var parsedNumber = this.parseNumbers();
-    this.addToNumList(parsedNumber);
+      var parsedNumber = this.parseNumbers();
+      this.addToNumList(parsedNumber);
     }
   }
 
   enterOperator = (operator) => {
-    // resets decimal switch to allow a new decimal for new number
-    this.resetDecimal();
-    this.setOperator(operator);
-    this.checkNumAvail();
 
+    this.setOperator(operator);
+    if(this.state.opSign == ""){
+      // resets decimal switch to allow a new decimal for new number
+      this.resetDecimal();
+      this.checkNumAvail();
+    }
     // does function depending on operator selected
     switch (operator) {
       case '*':
@@ -205,10 +207,13 @@ class ReactApp extends React.Component {
     this.checkNumAvail();
     var num = this.state.numList;
     this.setEqualSign();
+    this.clearOperator();
+   
   }
 
   
   render() {
+    console.log("EVAL " + eval(12 + "-" + 12))
     console.log("inputNumbers = " + this.state.inputNumbers);
     console.log("numList = " + this.state.numList);
     console.log("opSign = " + this.state.opSign);
@@ -297,25 +302,6 @@ class ReactApp extends React.Component {
     );
   }
 }       
-
-
-// class Text extends React.Component {
-//   render() {
-//     return (
-//       <div>
-//         {this.props.text}
-//       </div>
-//     );
-//   }
-// }
-
-// class Author extends React.Component {
-//   render() {
-//     return (
-//       <h3>-{this.props.author}</h3>
-//     );
-//   }
-// }
 
 root.render(
   <div>
