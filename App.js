@@ -50,15 +50,11 @@ class ReactApp extends React.Component {
     super(props)
     this.state = {
       inputNumbers: [],
+      numList: [],
       calculation: [],
       hasDecimal: false,
       opSign: "",
-
-      currentVal: '0',
-      prevVal: '0',
-      formula: '',
-      currentSign: 'pos',
-      lastClicked: ''
+      equalSign: false
     }
   }
 
@@ -102,6 +98,21 @@ class ReactApp extends React.Component {
     }
   }
 
+
+  //==================== Clear Functions ==================================>
+
+  clearInputNumbers = () => {
+    this.setState({ inputNumbers: []});
+  }
+
+  clearNumList = () => {
+    this.setState({ numList: []});
+  }
+
+  clearScreen = () => {
+    this.clearNumList();
+    this.clearInputNumbers()
+  }
   //==================== Main Input Function ==================================>
 
   enterNumber = (num) => {
@@ -111,15 +122,11 @@ class ReactApp extends React.Component {
 
   }
   
-  clearScreen = () => {
-    this.setState({ inputNumbers: []});
-  }
-
   //==================== Parse Function ======================================>
 
   parseNumbers = () => {
     var x = parseFloat(this.state.inputNumbers.join(""));
-    this.clearScreen();
+    this.clearInputNumbers();
     return x;
   }
 
@@ -129,34 +136,52 @@ class ReactApp extends React.Component {
     this.setState({opSign: operator});
   }
 
-  chechMultiOperstor = () => {
+  // chechMultiOperstor = () => {
 
+  // }
+
+  checkIfNumberAvailable = () => {
+    if(this.state.inputNumbers.length > 0){
+      return true;
+    }  else {
+      return false;
+    }
+  }
+
+  addToNumList = (num) => {
+    var newNum = [...this.state.numList, num];
+    this.setState({numList: newNum})
+  }
+
+  checkNumAvail = () => {
+    var numberAvailable = this.checkIfNumberAvailable();
+    if(numberAvailable){
+    var parsedNumber = this.parseNumbers();
+    this.addToNumList(parsedNumber);
+    }
   }
 
   enterOperator = (operator) => {
     // resets decimal switch to allow a new decimal for new number
     this.resetDecimal();
-    this.checkMultiOperator(operator);
     this.setOperator(operator);
-    var parsedNumber = this.parseNumbers();
-
+    this.checkNumAvail();
 
     // does function depending on operator selected
     switch (operator) {
       case '*':
-        console.log("* = " + operator);
-        
-        console.log(parsedNumber);
+        //do something
         break;
       case '/':
-        console.log("/ = " + operator);
+        //do something
         break;
       case '+':
-        console.log("+ = " + operator);
+        //do something
         break;
-        case '-':
-          console.log("- = " + operator);
-          break;
+      case '-':
+        //do something
+        break;
+        
       default:
         console.log("ERROR IN SWITCH");
     }
@@ -167,26 +192,20 @@ class ReactApp extends React.Component {
   // Work in Progress ===================================>
 
 
+  setEqualSign = () => {
+    this.setState({equalSign: true});
+  }
 
   getCalculation = () => {
-    const addition = this.state.inputNumbers.indexOf("+");
-    const subtraction = this.state.inputNumbers.indexOf("-");
-    const division = this.state.inputNumbers.indexOf("/");
-    const multiply = this.state.inputNumbers.indexOf("*");
-
-    var number = 0;
-    var add = false;
-    var subtract = false;
-    var divide = false;
-    // var multiply = false;
-
-    for(var i = 0; i < this.state.inputNumbers.length; i++){
-      
-    }
-    this.setState({calculation: addition})
+    this.checkNumAvail();
+    var num = this.state.numList;
+    this.setEqualSign();
   }
+
   
   render() {
+    console.log("inputNumbers = " + this.state.inputNumbers);
+    console.log("numList = " + this.state.numList);
     return (
       <div >
         <h1>Calculator App</h1>
@@ -229,7 +248,7 @@ class ReactApp extends React.Component {
 
                 <div id="num-row-0">
                   {/* Clear */}
-                  <div id="clear"    onClick={() => {this.clearScreen()}}> AC </div>
+                  <div id="clear" onClick={() => {this.clearScreen()}}> AC </div>
                   {/* Equals */}
                   <div id="equals" onClick={() => {this.getCalculation()}}> = </div>
                 </div>
