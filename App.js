@@ -51,18 +51,20 @@ class ReactApp extends React.Component {
     this.state = {
       inputNumbers: [],
       numList: [],
-      calculation: [],
+      calculation: "",
+      calculationList: [],
       hasDecimal: false,
-      opSign: "",
-      equalSign: false
+      opSign: ""
     }
   }
 
+
+  
   // functions
 
   //==================== Check for Operator Sign ==============================>
   checkOpSign = () => {
-    if(this.state.opSign === "") {
+    if(this.state.opSign == "") {
       return false;
     } else {
       return true;
@@ -96,16 +98,73 @@ class ReactApp extends React.Component {
   checkNumber = (num) => {
     // stores length of inputNumbers array
     var inputNumLength = this.state.inputNumbers.length;
+    // created index of last input
+    var index = inputNumLength -1;
+    // index value of last input value
+    var lastInput = this.state.inputNumbers[index] 
+
+
+    switch (num) {  // =================WORK ON FIRST@@@@@@@!!!!!
+      case '*':
+        if(lastInput === "*" || lastInput === "/" || lastInput === "-" || lastInput === "+") {
+          alert("*")
+        }else {
+          this.setState({ inputNumbers: [...this.state.inputNumbers, num]})
+        }
+        break;
+
+      case '/':
+        if(lastInput === "*" || lastInput === "/" || lastInput === "-" || lastInput === "+") {
+          alert("/")
+        }else {
+          this.setState({ inputNumbers: [...this.state.inputNumbers, num]})
+        }
+        break;
+
+      case '+':
+        if(lastInput === "*" || lastInput === "/" || lastInput === "-" || lastInput === "+") {          alert("+")
+        }else {
+          this.setState({ inputNumbers: [...this.state.inputNumbers, num]})
+        }
+        break;
+
+      case '-':
+        if(lastInput === "*" || lastInput === "/" || lastInput === "-" || lastInput === "+") {          alert("-")
+        }else {
+          this.setState({ inputNumbers: [...this.state.inputNumbers, num]})
+        }
+        break;
+
+      case '.':
+        //do something
+        break;
+      case 0:
+        if(num === 0 && this.state.inputNumbers[0] === 0 && inputNumLength === 1) {
+          return false;
+        }else {
+          this.setState({ inputNumbers: [...this.state.inputNumbers, num]});
+        }
+        break;
+
+      default:
+        console.log("Switch Default Action, Input = " + num);
+        this.setState({ inputNumbers: [...this.state.inputNumbers, num]});
+    }
+
+
+    
 
     // run this is input is not a decimal
-    if(num != "."){
-      // Returns false and prevents two 0's from being entered at begining of number.
-      if(num === 0 && this.state.inputNumbers[0] === 0 && inputNumLength === 1) {
-        return false;
-      } else {
-          this.setState({ inputNumbers: [...this.state.inputNumbers, num]});
-      }
-    }
+
+    // if(num != "."){
+    //   // Returns false and prevents two 0's from being entered at begining of number.
+    //   if(num === 0 && this.state.inputNumbers[0] === 0 && inputNumLength === 1) {
+    //     return false;
+    //   } else {
+    //       this.setState({ inputNumbers: [...this.state.inputNumbers, num]});
+    //   }
+    // }
+
   }
 
 
@@ -122,29 +181,35 @@ class ReactApp extends React.Component {
   clearNumList = () => {
     this.setState({ numList: []});
   }
+  clearCalculation = () => {
+    this.setState({calculation: ""});
+  }
+
+  clearCalculationList = () => {
+    this.setState({calculationList: []});
+  }
 
   clearScreen = () => {
     this.clearNumList();
     this.clearInputNumbers()
     this.clearOperator();
+    this.clearCalculation();
+    this.clearCalculationList();
+  }
+
+  addSignToList = (opSign) => {
+    var newList = this.state.numList.concat(opSign);
+    this.setState({numList: newList}, () => {
+      this.setState({numList: newList});
+    })
   }
   //==================== Main Input Function ==================================>
 
-  enterNumber = (num) => {
-    // checks to see if last key press was a operator sign
-    var thereIsASign = this.checkOpSign();
-    
-    // if there is..add it to list, clear operator sign from opSign state, 
-    // and clear input screen before adding new number
-    if(thereIsASign) {
-      this.addToNumList(this.state.opSign);
-      this.clearOperator();
-      this.clearInputNumbers();
-    }
+  enterNumber = (input) => {
 
     //passes input to check functions to see if input is valid.
-    this.checkNumber(num);
-    this.checkDecimal(num);
+    this.checkNumber(input); //checkNumber() => 
+    this.checkDecimal(input);
   }
   
   //==================== Parse Function ======================================>
@@ -157,41 +222,29 @@ class ReactApp extends React.Component {
 
   //==================== Operator Function ===================================>
 
-  setOperator = (operator) => {
-    this.setState({opSign: operator});
-  }
+                                        // setOperator = (operator) => {
+                                        //   this.setState({opSign: operator});
+                                        // }
 
-  checkIfNumberAvailable = () => {
-    if(this.state.inputNumbers.length > 0){
-      return true;
-    }  else {
-      return false;
-    }
-  }
 
   addToNumList = (num) => {
     var newNum = [...this.state.numList, num];
     this.setState({numList: newNum})
   }
 
-  checkNumAvail = () => {
-    var numberAvailable = this.checkIfNumberAvailable();
-    if(numberAvailable){
-      var parsedNumber = this.parseNumbers();
-      this.addToNumList(parsedNumber);
-    }
-  }
 
   enterOperator = (operator) => {
-    this.setOperator(operator);
-    var thereIsASign = this.checkOpSign();
+                                  // this.setOperator(operator);
+                                  // this.addOperatorToDisplay(operator);
 
-    if(thereIsASign === false){
-      // resets decimal switch to allow a new decimal for new number
-      this.resetDecimal();
-      this.checkNumAvail();
-    }
-    // does function depending on operator selected
+                                  // var thereIsASign = this.checkOpSign();
+
+                                  // if(thereIsASign === false){
+                                  //   // resets decimal switch to allow a new decimal for new number
+                                  //   this.resetDecimal();
+                                  //   this.checkNumAvail();
+                                  // }
+                                  // does function depending on operator selected
     switch (operator) {
       case '*':
         //do something
@@ -215,28 +268,28 @@ class ReactApp extends React.Component {
 
   // Work in Progress ===================================>
 
+  //===============================================================================NEEEDS WORK!!!!!
 
-  setEqualSign = () => {
-    this.setState({equalSign: true});
-  }
 
+  
+
+
+  ///////////////////////////   ===>     NEEDS WORK
   getCalculation = () => {
-    this.checkNumAvail();
-    var num = this.state.numList;
-    this.setEqualSign();
     this.clearOperator();
-   
   }
 
   
   render() {
-    console.log("EVAL " + eval(12 + "-" + 12))
+    console.log("calculationList " + this.state.calculationList)
+    console.log("calculation " + this.state.calculation)
     console.log("inputNumbers = " + this.state.inputNumbers);
     console.log("numList = " + this.state.numList);
     console.log("opSign = " + this.state.opSign);
     return (
       <div >
         <h1>Calculator App</h1>
+        {this.state.calculation}
         <div id="calculator">
 
           {/* Display */}
@@ -284,10 +337,10 @@ class ReactApp extends React.Component {
 
               <div id="calculation-operators">
                 {/* Arithmetic Operators */}
-                <div id="add" className="button"      onClick={() => {this.enterOperator("+")}}> + </div>
-                <div id="subtract" className="button" onClick={() => {this.enterOperator("-")}}> - </div>
-                <div id="multiply" className="button" onClick={() => {this.enterOperator("*")}}> X </div>
-                <div id="divide" className="button"   onClick={() => {this.enterOperator("/")}}> / </div>
+                <div id="add" className="button"      onClick={() => {this.enterNumber("+")}}> + </div>
+                <div id="subtract" className="button" onClick={() => {this.enterNumber("-")}}> - </div>
+                <div id="multiply" className="button" onClick={() => {this.enterNumber("*")}}> × </div>
+                <div id="divide" className="button"   onClick={() => {this.enterNumber("/")}}> ÷ </div>
                 {/* Decimal */}
                 <div id="decimal" className="button"  onClick={() => {this.enterNumber(".")}}> . </div>
               </div>
