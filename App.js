@@ -53,24 +53,13 @@ class ReactApp extends React.Component {
       numList: [],
       calculation: "",
       calculationList: [],
-      hasDecimal: false,
-      opSign: ""
+      hasDecimal: false
     }
   }
 
 
   
   // functions
-
-  //==================== Check for Operator Sign ==============================>
-  checkOpSign = () => {
-    if(this.state.opSign == "") {
-      return false;
-    } else {
-      return true;
-    }
-  }
-
   //==================== Check Decimal Functions ==============================>
 
   // resets decimal state
@@ -94,7 +83,6 @@ class ReactApp extends React.Component {
   }
 
   //==================== Check Number Functions ==============================>
-
   checkNumber = (num) => {
     // stores length of inputNumbers array
     var inputNumLength = this.state.inputNumbers.length;
@@ -103,8 +91,8 @@ class ReactApp extends React.Component {
     // index value of last input value
     var lastInput = this.state.inputNumbers[index] 
 
-
-    switch (num) {  // =================WORK ON FIRST@@@@@@@!!!!!
+    // Operator CHECK (Doubles)
+    switch (num) {
       case '*':
         if(lastInput === "*" || lastInput === "/" || lastInput === "-" || lastInput === "+") {
           alert("*")
@@ -151,9 +139,6 @@ class ReactApp extends React.Component {
         this.setState({ inputNumbers: [...this.state.inputNumbers, num]});
     }
 
-
-    
-
     // run this is input is not a decimal
 
     // if(num != "."){
@@ -166,7 +151,6 @@ class ReactApp extends React.Component {
     // }
 
   }
-
 
   //==================== Clear Functions ==================================>
 
@@ -213,69 +197,17 @@ class ReactApp extends React.Component {
   }
   
   //==================== Parse Function ======================================>
+          // << ======CURENTLY NOT USED =====================>>
+                  // parseNumbers = () => {
+                  //   var x = parseFloat(this.state.inputNumbers.join(""));
+                  //   this.clearInputNumbers();
+                  //   return x;
+                  // }
 
-  parseNumbers = () => {
-    var x = parseFloat(this.state.inputNumbers.join(""));
-    this.clearInputNumbers();
-    return x;
-  }
-
-  //==================== Operator Function ===================================>
-
-                                        // setOperator = (operator) => {
-                                        //   this.setState({opSign: operator});
-                                        // }
-
-
-  addToNumList = (num) => {
-    var newNum = [...this.state.numList, num];
-    this.setState({numList: newNum})
-  }
-
-
-  enterOperator = (operator) => {
-                                  // this.setOperator(operator);
-                                  // this.addOperatorToDisplay(operator);
-
-                                  // var thereIsASign = this.checkOpSign();
-
-                                  // if(thereIsASign === false){
-                                  //   // resets decimal switch to allow a new decimal for new number
-                                  //   this.resetDecimal();
-                                  //   this.checkNumAvail();
-                                  // }
-                                  // does function depending on operator selected
-    switch (operator) {
-      case '*':
-        //do something
-        break;
-      case '/':
-        //do something
-        break;
-      case '+':
-        //do something
-        break;
-      case '-':
-        //do something
-        break;
-        
-      default:
-        console.log("ERROR IN SWITCH");
-    }
-    
-  }
-
-
-  // Work in Progress ===================================>
-
-  //===============================================================================NEEEDS WORK!!!!!
-
-
-  
-
-
+  //=============================================================================== NEEEDS WORK!!!!!
   ///////////////////////////   ===>     NEEDS WORK
   getCalculation = () => {
+
     this.clearOperator();
   }
 
