@@ -59,6 +59,16 @@ class ReactApp extends React.Component {
   }
 
   // functions
+
+  //==================== Check for Operator Sign ==============================>
+  checkOpSign = () => {
+    if(this.state.opSign === "") {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   //==================== Check Decimal Functions ==============================>
 
   // resets decimal state
@@ -121,10 +131,20 @@ class ReactApp extends React.Component {
   //==================== Main Input Function ==================================>
 
   enterNumber = (num) => {
+    // checks to see if last key press was a operator sign
+    var thereIsASign = this.checkOpSign();
+    
+    // if there is..add it to list, clear operator sign from opSign state, 
+    // and clear input screen before adding new number
+    if(thereIsASign) {
+      this.addToNumList(this.state.opSign);
+      this.clearOperator();
+      this.clearInputNumbers();
+    }
+
     //passes input to check functions to see if input is valid.
     this.checkNumber(num);
     this.checkDecimal(num);
-
   }
   
   //==================== Parse Function ======================================>
@@ -140,10 +160,6 @@ class ReactApp extends React.Component {
   setOperator = (operator) => {
     this.setState({opSign: operator});
   }
-
-  // chechMultiOperstor = () => {
-
-  // }
 
   checkIfNumberAvailable = () => {
     if(this.state.inputNumbers.length > 0){
@@ -167,9 +183,10 @@ class ReactApp extends React.Component {
   }
 
   enterOperator = (operator) => {
-
     this.setOperator(operator);
-    if(this.state.opSign == ""){
+    var thereIsASign = this.checkOpSign();
+
+    if(thereIsASign === false){
       // resets decimal switch to allow a new decimal for new number
       this.resetDecimal();
       this.checkNumAvail();
