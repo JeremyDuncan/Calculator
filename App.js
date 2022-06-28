@@ -91,7 +91,8 @@ class ReactApp extends React.Component {
     // index value of last input value
     var lastInput = this.state.inputNumbers[index] 
 
-    // Operator CHECK (Doubles)
+    // makes sure "*", "/", "-", "+", "." are legal inputs for calculator,
+    // adds to inputNumbers array if input === GOOD, rejects if === BAD
     switch (num) {
       case '*':
         if(lastInput === "*" || lastInput === "/" || lastInput === "-" || lastInput === "+") {
@@ -138,41 +139,24 @@ class ReactApp extends React.Component {
         console.log("Switch Default Action, Input = " + num);
         this.setState({ inputNumbers: [...this.state.inputNumbers, num]});
     }
-
-    // run this is input is not a decimal
-
-    // if(num != "."){
-    //   // Returns false and prevents two 0's from being entered at begining of number.
-    //   if(num === 0 && this.state.inputNumbers[0] === 0 && inputNumLength === 1) {
-    //     return false;
-    //   } else {
-    //       this.setState({ inputNumbers: [...this.state.inputNumbers, num]});
-    //   }
-    // }
-
   }
 
   //==================== Clear Functions ==================================>
-
   clearOperator = () => {
     this.setState({opSign: ""});
   }
-
   clearInputNumbers = () => {
     this.setState({ inputNumbers: []});
   }
-
   clearNumList = () => {
     this.setState({ numList: []});
   }
   clearCalculation = () => {
     this.setState({calculation: ""});
   }
-
   clearCalculationList = () => {
     this.setState({calculationList: []});
   }
-
   clearScreen = () => {
     this.clearNumList();
     this.clearInputNumbers()
@@ -181,18 +165,10 @@ class ReactApp extends React.Component {
     this.clearCalculationList();
   }
 
-  addSignToList = (opSign) => {
-    var newList = this.state.numList.concat(opSign);
-    this.setState({numList: newList}, () => {
-      this.setState({numList: newList});
-    })
-  }
   //==================== Main Input Function ==================================>
-
   enterNumber = (input) => {
-
     //passes input to check functions to see if input is valid.
-    this.checkNumber(input); //checkNumber() => 
+    this.checkNumber(input); //checkNumber() ==> Line 85 <==
     this.checkDecimal(input);
   }
   
@@ -206,6 +182,7 @@ class ReactApp extends React.Component {
 
   //=============================================================================== NEEEDS WORK!!!!!
   ///////////////////////////   ===>     NEEDS WORK
+  //================= Equals Function =========================================>
   getCalculation = () => {
 
     this.clearOperator();
