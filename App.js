@@ -61,18 +61,17 @@ class ReactApp extends React.Component {
   
   // functions
   //==================== Check Decimal Functions ==============================>
-
   // resets decimal state
   resetDecimal = () => {
     this.setState({hasDecimal: false})
   }
-
+  // Add decimal to inputNumbers array if decimal is not present in number
   enterDecimal = (num) => {
     if (this.state.hasDecimal === false) {
       this.setState({ inputNumbers: [...this.state.inputNumbers, num]});
       }
   }
-
+  // checks to see if decimal in number. returns TRUE if decimal present
   checkDecimal = (num) => {
     // run this is input is a decimal
     // if number has no decimal enter decimal and change state to "hasDecimal"
