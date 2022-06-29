@@ -1,7 +1,7 @@
 // Build a JavaScript Calculator
 // Objective: Build an app that is functionally similar to this: https://codepen.io/freeCodeCamp/full/wgGVVX.
 
-// Fulfill the below user stories and get all of the tests to pass. Use whichever libraries or APIs you need. Give it your own personal style.
+// Fulfill the below user stories and get all of the calculationOutputs to pass. Use whichever libraries or APIs you need. Give it your own personal style.
 
 
 // User Story #1: My calculator should contain a clickable element containing an = (equal sign) with a corresponding id="equals".
@@ -52,13 +52,13 @@ class ReactApp extends React.Component {
       inputNumbers: [],
       numList: [],
       calculation: "",
-      calculationList: [],
       hasDecimal: false
     }
+    this.getCalculation = this.getCalculation.bind(this)
+    this.enterNumber = this.enterNumber.bind(this)
+    this.Calculate = this.calculate.bind(this)
   }
 
-
-  
   // functions
   //==================== Check Decimal Functions ==============================>
   // resets decimal state
@@ -167,7 +167,7 @@ class ReactApp extends React.Component {
   //==================== Main Input Function ==================================>
   enterNumber = (input) => {
     //passes input to check functions to see if input is valid.
-    this.checkNumber(input); //checkNumber() ==> Line 85 <==
+    this.checkNumber(input); //checkNumber() ==> Line 82 <==
     this.checkDecimal(input);
   }
   
@@ -181,19 +181,64 @@ class ReactApp extends React.Component {
 
   //=============================================================================== NEEEDS WORK!!!!!
   ///////////////////////////   ===>     NEEDS WORK
-  //================= Equals Function =========================================>
-  getCalculation = () => {
+  calculate = () => {
+    // stores length of inputNumbers array
+    var inputNumLength = this.state.inputNumbers.length;
+    // created index of last input
+    var index = inputNumLength -1;
+    // index value of last input value
+    var lastInput = this.state.inputNumbers[index] 
+    // index value of first input 
+    var firstInput = this.state.inputNumbers[0]
 
+      // if last input is not a number... DO NOTHING
+    if(lastInput === "*" || lastInput === "/" || lastInput === "-" || lastInput === "+") {
+      alert("calculationOutput SAT")
+
+      // else if first number calculated.. store in calculation state
+    } else if(this.state.calculation.length < 1) {
+      var calculatedInput = eval(this.state.inputNumbers.join(""))
+      this.setState({calculation: calculatedInput}) //[...this.state.calculation, calculatedInput]
+
+      
+    }else if(firstInput === "*" || firstInput === "/" || firstInput === "-" || firstInput === "+") {
+      alert("PASSED")
+
+
+
+      // else if any number after first calculation do this..
+    } else {
+      var calculatedInput = eval(this.state.inputNumbers.join(""));
+      var savedCalculation = eval(this.state.calculation);
+      var calculationOutput = calculatedInput + savedCalculation
+
+      // === ==> CONSOLE LOGS <== ===
+      console.log("savedCalculation = " + savedCalculation)
+      console.log("calculatedInput = " + calculatedInput)
+      console.log("calculationOutput = "+ calculationOutput)
+
+
+      this.setState((state, props) => ({
+      calculation: calculationOutput,
+      }))
+      // this.setState({calculation: calculationOutput});
+    }
+  }
+
+  //================= Main Equal Function =====================================>
+  getCalculation = () => {
+    this.calculate();
     this.clearOperator();
+    this.clearInputNumbers();
   }
 
   
   render() {
-    console.log("calculationList " + this.state.calculationList)
     console.log("calculation " + this.state.calculation)
     console.log("inputNumbers = " + this.state.inputNumbers);
     console.log("numList = " + this.state.numList);
-    console.log("opSign = " + this.state.opSign);
+    console.log("=================================");
+    
     return (
       <div >
         <h1>Calculator App</h1>
