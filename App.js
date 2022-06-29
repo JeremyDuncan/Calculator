@@ -126,7 +126,7 @@ class ReactApp extends React.Component {
         break;
 
       case ".": 
-        this.checkDecimal(num);
+        this.checkDecimal(num); // ==> Line 65  ==> enterDecimal() Line 69
       break;
 
       case 0:
@@ -144,6 +144,7 @@ class ReactApp extends React.Component {
   }
 
   //==================== Clear Functions ==================================>
+  // These function clear state to initial satte when initialized
   clearOperator = () => {
     this.setState({opSign: ""});
   }
@@ -173,9 +174,8 @@ class ReactApp extends React.Component {
     this.checkNumber(input); //checkNumber() ==> Line 84 <==
     
   }
-  
-  //=============================================================================== NEEEDS WORK!!!!!
-  ///////////////////////////   ===>     NEEDS WORK
+
+  //==================== Calculate Function ===================================>
   calculate = () => {
     var inputNumLength = this.state.inputNumbers.length;  // stores length of inputNumbers array
     var index = inputNumLength -1;                        // created index of last input
@@ -191,11 +191,13 @@ class ReactApp extends React.Component {
     }else if(firstInput === "*" || firstInput === "/" || firstInput === "+") {
       // if number has been calculated previously...use operator on that number.
       if(this.state.calculation != "") {
-        var inputArray = this.state.inputNumbers;
-        inputArray.shift()
-        var calculatedInput = eval(inputArray.join(""));
-        var savedCalculation = eval(this.state.calculation);
+        var inputArray = this.state.inputNumbers;           // stores inputNumbers state into variable 
+        inputArray.shift()                                  // removes the operator from the value
+        var calculatedInput = eval(inputArray.join(""));    // calculates value and stores in new variable
+        var savedCalculation = eval(this.state.calculation);// stores calculation state into variable
 
+        // takes the last calculation and calculates a new value based on the
+        // operator and values selected.
         switch (firstInput) {
           case '*':
             var calculationOutput = calculatedInput * savedCalculation;
@@ -230,7 +232,6 @@ class ReactApp extends React.Component {
       }
       // else if any number after first calculation do this..
     } else if(this.state.calculation.length < 1) {
-      alert("TEST LINE 230")
       var calculatedInput = eval(this.state.inputNumbers.join(""))
       this.setState({calculation: calculatedInput}) //[...this.state.calculation, calculatedInput] 
 
@@ -239,7 +240,7 @@ class ReactApp extends React.Component {
       var savedCalculation = eval(this.state.calculation);
       var calculationOutput = calculatedInput + savedCalculation
 
-      // === ==> CONSOLE LOGS <== ===
+      // === ==> CONSOLE LOGS for troubleshooting and debugging <== ===
       console.log("savedCalculation = " + savedCalculation)
       console.log("calculatedInput = " + calculatedInput)
       console.log("calculationOutput = "+ calculationOutput)
@@ -262,7 +263,7 @@ class ReactApp extends React.Component {
 
   
   render() {
-    console.log(eval(-108 * -1))
+    // Console logs for troubleshooting and debugging
     console.log("calculation " + this.state.calculation)
     console.log("inputNumbers = " + this.state.inputNumbers);
     console.log("numList = " + this.state.numList);
