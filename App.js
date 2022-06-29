@@ -187,8 +187,8 @@ class ReactApp extends React.Component {
     if(lastInput === "*" || lastInput === "/" || lastInput === "-" || lastInput === "+") {
       alert("enter a number after the operator!!")
 
-    // else if first input is not a number do this...
-    }else if(firstInput === "*" || firstInput === "/" || firstInput === "+") {
+      // else if first input is not a number do this...
+    } else if(firstInput === "*" || firstInput === "/" || firstInput === "+") {
       // if number has been calculated previously...use operator on that number.
       if(this.state.calculation != "") {
         var inputArray = this.state.inputNumbers;           // stores inputNumbers state into variable 
