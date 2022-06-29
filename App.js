@@ -171,14 +171,6 @@ class ReactApp extends React.Component {
     this.checkDecimal(input);
   }
   
-  //==================== Parse Function ======================================>
-          // << ======CURENTLY NOT USED =====================>>
-                  // parseNumbers = () => {
-                  //   var x = parseFloat(this.state.inputNumbers.join(""));
-                  //   this.clearInputNumbers();
-                  //   return x;
-                  // }
-
   //=============================================================================== NEEEDS WORK!!!!!
   ///////////////////////////   ===>     NEEDS WORK
   calculate = () => {
@@ -193,20 +185,54 @@ class ReactApp extends React.Component {
 
       // if last input is not a number... DO NOTHING
     if(lastInput === "*" || lastInput === "/" || lastInput === "-" || lastInput === "+") {
-      alert("calculationOutput SAT")
+      alert("enter a number after the operator!!")
 
-      // else if first number calculated.. store in calculation state
+      // else if first input is not a number do this...
+    }else if(firstInput === "*" || firstInput === "/" || firstInput === "-" || firstInput === "+") {
+      // if number has been calculated previously...use operator on that number.
+      if(this.state.calculation > 0) {
+        var inputArray = this.state.inputNumbers;
+        inputArray.shift()
+        var calculatedInput = eval(inputArray.join(""));
+        var savedCalculation = eval(this.state.calculation);
+
+        switch (firstInput) {
+          case '*':
+            var calculationOutput = calculatedInput * savedCalculation;
+            this.setState((state, props) => ({
+              calculation: calculationOutput,
+              }))
+            break;
+    
+          case '/':
+            var calculationOutput = savedCalculation / calculatedInput;
+            this.setState((state, props) => ({
+              calculation: calculationOutput,
+              }))
+            break;
+    
+          case '+':
+            var calculationOutput = savedCalculation + calculatedInput;
+            this.setState((state, props) => ({
+              calculation: calculationOutput,
+              }))
+            break;
+    
+          case '-':
+            var calculationOutput = savedCalculation - calculatedInput;
+            this.setState((state, props) => ({
+              calculation: calculationOutput,
+              }))
+            break;
+          default:
+            console.log("WIERD ERROR");
+        }
+      }
+      // else if any number after first calculation do this..
     } else if(this.state.calculation.length < 1) {
       var calculatedInput = eval(this.state.inputNumbers.join(""))
-      this.setState({calculation: calculatedInput}) //[...this.state.calculation, calculatedInput]
+      this.setState({calculation: calculatedInput}) //[...this.state.calculation, calculatedInput] 
 
-      
-    }else if(firstInput === "*" || firstInput === "/" || firstInput === "-" || firstInput === "+") {
-      alert("PASSED")
-
-
-
-      // else if any number after first calculation do this..
     } else {
       var calculatedInput = eval(this.state.inputNumbers.join(""));
       var savedCalculation = eval(this.state.calculation);
@@ -217,11 +243,9 @@ class ReactApp extends React.Component {
       console.log("calculatedInput = " + calculatedInput)
       console.log("calculationOutput = "+ calculationOutput)
 
-
       this.setState((state, props) => ({
       calculation: calculationOutput,
       }))
-      // this.setState({calculation: calculationOutput});
     }
   }
 
