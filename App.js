@@ -73,7 +73,6 @@ class ReactApp extends React.Component {
   }
   // checks to see if decimal in number. returns TRUE if decimal present
   checkDecimal = (num) => {
-    // run this is input is a decimal
     // if number has no decimal enter decimal and change state to "hasDecimal"
     if (num === "." && this.state.hasDecimal === false) {
       this.enterDecimal(num);
@@ -126,6 +125,10 @@ class ReactApp extends React.Component {
         }
         break;
 
+      case ".": 
+        this.checkDecimal(num);
+      break;
+
       case 0:
         if(num === 0 && this.state.inputNumbers[0] === 0 && inputNumLength === 1) {
           return false;
@@ -167,8 +170,8 @@ class ReactApp extends React.Component {
   //==================== Main Input Function ==================================>
   enterNumber = (input) => {
     //passes input to check functions to see if input is valid.
-    this.checkNumber(input); //checkNumber() ==> Line 82 <==
-    this.checkDecimal(input);
+    this.checkNumber(input); //checkNumber() ==> Line 84 <==
+    
   }
   
   //=============================================================================== NEEEDS WORK!!!!!
