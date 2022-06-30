@@ -237,7 +237,7 @@ class ReactApp extends React.Component {
     console.log("=================================");
 
     return (
-      <div >
+      <div>
         <h1>Calculator App</h1>
         <div id="calculator">
 
