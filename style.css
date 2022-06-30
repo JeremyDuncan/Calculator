@@ -13,6 +13,12 @@
     url('//db.onlinewebfonts.com/t/8e22783d707ad140bffe18b2a3812529.svg#Digital-7')
       format('svg');
 }
+#root-page {
+  height: 630px;
+  margin: auto;
+  border: 10px solid rgba(4, 78, 99, 0.122);
+}
+
 body {
   background-color: rgb(9, 97, 119);
 }
@@ -31,7 +37,7 @@ h1 {
   height: 320px;
   box-shadow: 8px 8px 40px black;
   margin: auto;
-  margin-top: 50px;
+  margin-top: 100px;
 }
 #calc-displays { 
   font-family: digital;
@@ -456,4 +462,14 @@ h1 {
 
 .button:active {
   transform: scale(.95);
+}
+
+/* FOOOTER SECTION */
+
+.footer {
+  display: flex;
+  justify-self: space-between;
+  justify-content: space-evenly;
+  margin-top: 70px;
+
 }
