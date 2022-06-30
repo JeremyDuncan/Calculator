@@ -13,8 +13,13 @@
     url('//db.onlinewebfonts.com/t/8e22783d707ad140bffe18b2a3812529.svg#Digital-7')
       format('svg');
 }
+body {
+  background-color: rgb(9, 97, 119);
+}
 h1 {
   text-align: center;
+  color: white;
+  text-shadow: 4px 4px 8px black;
 }
 #calculator {
   display: flex;
@@ -24,7 +29,7 @@ h1 {
   border: solid 2px black;
   border-radius: 8px;
   height: 320px;
-  box-shadow: 2px 2px 10px black;
+  box-shadow: 8px 8px 40px black;
   margin: auto;
   margin-top: 50px;
 }
