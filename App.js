@@ -11,16 +11,16 @@ class ReactApp extends React.Component {
       calculation: "",
       hasDecimal: false
     }
-    this.getCalculation = this.getCalculation.bind(this)
-    this.enterNumber = this.enterNumber.bind(this)
-    this.Calculate = this.calculate.bind(this)
+    this.getCalculation = this.getCalculation.bind(this);
+    this.enterNumber = this.enterNumber.bind(this);
+    this.Calculate = this.calculate.bind(this);
   }
 
   // functions
   //==================== Check Decimal Functions ==============================>
   // resets decimal state
   resetDecimal = () => {
-    this.setState({ hasDecimal: false })
+    this.setState({ hasDecimal: false });
   }
   // Add decimal to inputNumbers array if decimal is not present in number
   enterDecimal = (num) => {
@@ -33,7 +33,7 @@ class ReactApp extends React.Component {
     // if number has no decimal enter decimal and change state to "hasDecimal"
     if (num === "." && this.state.hasDecimal === false) {
       this.enterDecimal(num);
-      this.setState({ hasDecimal: true })
+      this.setState({ hasDecimal: true });
     }
   }
 
@@ -44,8 +44,8 @@ class ReactApp extends React.Component {
     // created index of last input
     var index = inputNumLength - 1;
     // index value of last input value
-    var lastInput = this.state.inputNumbers[index]
-    var beforeLast = this.state.inputNumbers[index - 1]
+    var lastInput = this.state.inputNumbers[index];
+    var beforeLast = this.state.inputNumbers[index - 1];
 
     // makes sure "*", "/", "-", "+", "." are legal inputs for calculator,
     // adds to inputNumbers array if input === GOOD, rejects if === BAD
@@ -54,7 +54,7 @@ class ReactApp extends React.Component {
         this.resetDecimal();
         if (lastInput === "*" || lastInput === "/" || lastInput === "-" || lastInput === "+") {
         } else {
-          this.setState({ inputNumbers: [...this.state.inputNumbers, num] })
+          this.setState({ inputNumbers: [...this.state.inputNumbers, num] });
         }
         break;
 
@@ -62,7 +62,7 @@ class ReactApp extends React.Component {
         this.resetDecimal();
         if (lastInput === "*" || lastInput === "/" || lastInput === "-" || lastInput === "+") {
         } else {
-          this.setState({ inputNumbers: [...this.state.inputNumbers, num] })
+          this.setState({ inputNumbers: [...this.state.inputNumbers, num] });
         }
         break;
 
@@ -70,7 +70,7 @@ class ReactApp extends React.Component {
         this.resetDecimal();
         if (lastInput === "*" || lastInput === "/" || lastInput === "-" || lastInput === "+") {
         } else {
-          this.setState({ inputNumbers: [...this.state.inputNumbers, num] })
+          this.setState({ inputNumbers: [...this.state.inputNumbers, num] });
         }
         break;
 
@@ -78,7 +78,7 @@ class ReactApp extends React.Component {
         this.resetDecimal();
         if (lastInput === "-") {
         } else {
-          this.setState({ inputNumbers: [...this.state.inputNumbers, num] })
+          this.setState({ inputNumbers: [...this.state.inputNumbers, num] });
         }
         break;
 
@@ -119,7 +119,7 @@ class ReactApp extends React.Component {
   }
   clearScreen = () => {
     this.clearNumList();
-    this.clearInputNumbers()
+    this.clearInputNumbers();
     this.clearOperator();
     this.clearCalculation();
     this.clearCalculationList();
@@ -129,7 +129,6 @@ class ReactApp extends React.Component {
   enterNumber = (input) => {
     //passes input to check functions to see if input is valid.
     this.checkNumber(input); //checkNumber() ==> Line 84 <==
-
   }
 
   //==================== Calculate Function ===================================>
@@ -137,19 +136,19 @@ class ReactApp extends React.Component {
     var inputNumLength = this.state.inputNumbers.length;  // stores length of inputNumbers array
     var index = inputNumLength - 1;                       // created index of last input
     var lastInput = this.state.inputNumbers[index];       // index value of last input value
-    var beforeLast = this.state.inputNumbers[index - 1]   // index value before last input
+    var beforeLast = this.state.inputNumbers[index - 1];  // index value before last input
     var firstInput = this.state.inputNumbers[0];          // index value of first input 
 
     // if last input is not a number... DO NOTHING
     if (lastInput === "*" || lastInput === "/" || lastInput === "-" || lastInput === "+") {
-      alert("enter a number after the operator!!")
+      alert("enter a number after the operator!!");
 
       // else if first input is not a number do this...
     } else if (firstInput === "*" || firstInput === "/" || firstInput === "+") {
       // if number has been calculated previously...use operator on that number.
       if (this.state.calculation != "") {
         var inputArray = this.state.inputNumbers;           // stores inputNumbers state into variable 
-        inputArray.shift()                                  // removes the operator from the value
+        inputArray.shift();                                 // removes the operator from the value
         var calculatedInput = eval(inputArray.join(""));    // calculates value and stores in new variable
         var savedCalculation = eval(this.state.calculation);// stores calculation state into variable
 
@@ -160,28 +159,28 @@ class ReactApp extends React.Component {
             var calculationOutput = calculatedInput * savedCalculation;
             this.setState((state, props) => ({
               calculation: calculationOutput,
-            }))
+            }));
             break;
 
           case '/':
             var calculationOutput = savedCalculation / calculatedInput;
             this.setState((state, props) => ({
               calculation: calculationOutput,
-            }))
+            }));
             break;
 
           case '+':
             var calculationOutput = savedCalculation + calculatedInput;
             this.setState((state, props) => ({
               calculation: calculationOutput,
-            }))
+            }));
             break;
 
           case '-':
             var calculationOutput = savedCalculation - calculatedInput;
             this.setState((state, props) => ({
               calculation: calculationOutput,
-            }))
+            }));
             break;
           default:
             console.log("WIERD ERROR");
@@ -190,33 +189,33 @@ class ReactApp extends React.Component {
 
       // else if any positive number after first calculation do this..
     } else if (this.state.calculation.length < 1) {
-      var calculatedInput = eval(this.state.inputNumbers.join(""))
-      this.setState({ calculation: calculatedInput })
+      var calculatedInput = eval(this.state.inputNumbers.join(""));
+      this.setState({ calculation: calculatedInput });
 
       // else if number is negative do this...
     } else if (firstInput == "-") {
       var inputArray = this.state.inputNumbers;           // stores inputNumbers state into variable 
-      inputArray.shift()                                  // removes the operator from the value
+      inputArray.shift();                                  // removes the operator from the value
       var calculatedInput = eval(inputArray.join(""));    // calculates value and stores in new variable
       var savedCalculation = eval(this.state.calculation);// stores calculation state into variable
 
       var calculationOutput = savedCalculation - calculatedInput;
       this.setState((state, props) => ({
         calculation: calculationOutput,
-      }))
+      }));
 
       // else start a new number if no beginning operator    
     } else {
       var calculatedInput = eval(this.state.inputNumbers.join(""));
 
       // === ==> CONSOLE LOGS for troubleshooting and debugging <== ===
-      console.log("savedCalculation = " + savedCalculation)
-      console.log("calculatedInput = " + calculatedInput)
-      console.log("calculationOutput = " + calculationOutput)
+      console.log("savedCalculation = " + savedCalculation);
+      console.log("calculatedInput = " + calculatedInput);
+      console.log("calculationOutput = " + calculationOutput);
 
       this.setState((state, props) => ({
         calculation: calculatedInput,
-      }))
+      }));
     }
   }
 
@@ -232,7 +231,7 @@ class ReactApp extends React.Component {
 
   render() {
     // Console logs for troubleshooting and debugging
-    console.log("calculation " + this.state.calculation)
+    console.log("calculation " + this.state.calculation);
     console.log("inputNumbers = " + this.state.inputNumbers);
     console.log("numList = " + this.state.numList);
     console.log("=================================");
