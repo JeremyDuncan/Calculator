@@ -187,15 +187,27 @@ class ReactApp extends React.Component {
             console.log("WIERD ERROR");
         }
       }
-      // else if any number after first calculation do this..
+
+    // else if any positive number after first calculation do this..
     } else if(this.state.calculation.length < 1) {
       var calculatedInput = eval(this.state.inputNumbers.join(""))
-      this.setState({calculation: calculatedInput}) //[...this.state.calculation, calculatedInput] 
+      this.setState({calculation: calculatedInput}) 
 
+    // else if number is negative do this...
+    } else if(firstInput == "-") {
+      var inputArray = this.state.inputNumbers;           // stores inputNumbers state into variable 
+      inputArray.shift()                                  // removes the operator from the value
+      var calculatedInput = eval(inputArray.join(""));    // calculates value and stores in new variable
+      var savedCalculation = eval(this.state.calculation);// stores calculation state into variable
+
+      var calculationOutput = savedCalculation - calculatedInput;
+      this.setState((state, props) => ({
+        calculation: calculationOutput,
+        }))
+      
+    // else start a new number if no beginning operator    
     } else {
       var calculatedInput = eval(this.state.inputNumbers.join(""));
-      var savedCalculation = eval(this.state.calculation);
-      var calculationOutput = calculatedInput + savedCalculation
 
       // === ==> CONSOLE LOGS for troubleshooting and debugging <== ===
       console.log("savedCalculation = " + savedCalculation)
@@ -203,7 +215,7 @@ class ReactApp extends React.Component {
       console.log("calculationOutput = "+ calculationOutput)
 
       this.setState((state, props) => ({
-      calculation: calculationOutput,
+      calculation: calculatedInput,
       }))
     }
   }
